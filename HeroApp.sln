@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroApp", "HeroApp\HeroApp.csproj", "{D4035B50-740D-45DB-AC30-D247E6F58C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroAppTests", "HeroAppTests\HeroAppTests.csproj", "{3AFBE633-22EB-4C0C-B934-5E5B3E650842}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4035B50-740D-45DB-AC30-D247E6F58C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4035B50-740D-45DB-AC30-D247E6F58C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4035B50-740D-45DB-AC30-D247E6F58C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4035B50-740D-45DB-AC30-D247E6F58C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AFBE633-22EB-4C0C-B934-5E5B3E650842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AFBE633-22EB-4C0C-B934-5E5B3E650842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AFBE633-22EB-4C0C-B934-5E5B3E650842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AFBE633-22EB-4C0C-B934-5E5B3E650842}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A95D407-625A-4086-8CF5-1D7474D31EDC}
+	EndGlobalSection
+EndGlobal

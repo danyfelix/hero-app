@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a4b4f7f557534abe9361e2ec942c72a3" Name="Diagram1">
+        <EntityTypeShape EntityType="DataBaseFirstModel.Hero" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="DataBaseFirstModel.RatingHistorial" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="DataBaseFirstModel.FK__RatingHis__HeroI__4AB81AF0" />
+        <EntityTypeShape EntityType="DataBaseFirstModel.ExceptionLog" Width="1.5" PointX="0.75" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

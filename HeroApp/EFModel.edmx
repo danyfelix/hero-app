@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataBaseFirstModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ExceptionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Exception" Type="varchar" MaxLength="1000" />
+          <Property Name="InnerException" Type="varchar" MaxLength="1000" />
+          <Property Name="StackTrace" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="Hero">
+          <Key>
+            <PropertyRef Name="HeroId" />
+          </Key>
+          <Property Name="HeroId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="Picture" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RatingHistorial">
+          <Key>
+            <PropertyRef Name="RatingHistorialId" />
+          </Key>
+          <Property Name="RatingHistorialId" Type="int" Nullable="false" />
+          <Property Name="HeroId" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="RaterName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__RatingHis__HeroI__4AB81AF0">
+          <End Role="Hero" Type="Self.Hero" Multiplicity="1" />
+          <End Role="RatingHistorial" Type="Self.RatingHistorial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hero">
+              <PropertyRef Name="HeroId" />
+            </Principal>
+            <Dependent Role="RatingHistorial">
+              <PropertyRef Name="HeroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataBaseFirstModelStoreContainer">
+          <EntitySet Name="ExceptionLog" EntityType="Self.ExceptionLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hero" EntityType="Self.Hero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RatingHistorial" EntityType="Self.RatingHistorial" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__RatingHis__HeroI__4AB81AF0" Association="Self.FK__RatingHis__HeroI__4AB81AF0">
+            <End Role="Hero" EntitySet="Hero" />
+            <End Role="RatingHistorial" EntitySet="RatingHistorial" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataBaseFirstModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataBaseFirstEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Hero" EntityType="DataBaseFirstModel.Hero" />
+          <EntitySet Name="RatingHistorial" EntityType="DataBaseFirstModel.RatingHistorial" />
+          <AssociationSet Name="FK__RatingHis__HeroI__4AB81AF0" Association="DataBaseFirstModel.FK__RatingHis__HeroI__4AB81AF0">
+            <End Role="Hero" EntitySet="Hero" />
+            <End Role="RatingHistorial" EntitySet="RatingHistorial" />
+          </AssociationSet>
+          <EntitySet Name="ExceptionLog" EntityType="DataBaseFirstModel.ExceptionLog" />
+        </EntityContainer>
+        <EntityType Name="Hero">
+          <Key>
+            <PropertyRef Name="HeroId" />
+          </Key>
+          <Property Name="HeroId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RatingHistorial" Relationship="DataBaseFirstModel.FK__RatingHis__HeroI__4AB81AF0" FromRole="Hero" ToRole="RatingHistorial" />
+        </EntityType>
+        <EntityType Name="RatingHistorial">
+          <Key>
+            <PropertyRef Name="RatingHistorialId" />
+          </Key>
+          <Property Name="RatingHistorialId" Type="Int32" Nullable="false" />
+          <Property Name="HeroId" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="RaterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hero" Relationship="DataBaseFirstModel.FK__RatingHis__HeroI__4AB81AF0" FromRole="RatingHistorial" ToRole="Hero" />
+        </EntityType>
+        <Association Name="FK__RatingHis__HeroI__4AB81AF0">
+          <End Type="DataBaseFirstModel.Hero" Role="Hero" Multiplicity="1" />
+          <End Type="DataBaseFirstModel.RatingHistorial" Role="RatingHistorial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hero">
+              <PropertyRef Name="HeroId" />
+            </Principal>
+            <Dependent Role="RatingHistorial">
+              <PropertyRef Name="HeroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ExceptionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Exception" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="InnerException" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataBaseFirstModelStoreContainer" CdmEntityContainer="DataBaseFirstEntities">
+          <EntitySetMapping Name="Hero">
+            <EntityTypeMapping TypeName="DataBaseFirstModel.Hero">
+              <MappingFragment StoreEntitySet="Hero">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HeroId" ColumnName="HeroId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RatingHistorial">
+            <EntityTypeMapping TypeName="DataBaseFirstModel.RatingHistorial">
+              <MappingFragment StoreEntitySet="RatingHistorial">
+                <ScalarProperty Name="RaterName" ColumnName="RaterName" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="HeroId" ColumnName="HeroId" />
+                <ScalarProperty Name="RatingHistorialId" ColumnName="RatingHistorialId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExceptionLog">
+            <EntityTypeMapping TypeName="DataBaseFirstModel.ExceptionLog">
+              <MappingFragment StoreEntitySet="ExceptionLog">
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="InnerException" ColumnName="InnerException" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

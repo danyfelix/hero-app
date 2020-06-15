@@ -1,0 +1,59 @@
+﻿@using HeroApp.Models;
+@model  List<HeroApp.Models.HeroViewModel>
+@{
+    ViewBag.Title = "Hero Rating List";
+}
+
+<h1>Hero Ratings</h1>
+<hr />
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-2">
+            <h2>Hero Name</h2>
+        </div>
+        <div class="col-md-2">
+            <h2>Age</h2>
+        </div>
+        <div class="col-md-2">
+            <h2>City</h2>
+        </div>
+        <div class="col-md-2">
+            <h2>Rating of Hero</h2>
+        </div>
+        <div class="col-md-2">
+            <h2>Picture</h2>
+        </div>
+        <div class="col-md-2">
+            <h2>Past Ratings</h2>
+        </div>
+    </div>
+    <hr />
+    @{ foreach (HeroViewModel model in Model)
+        {
+            <div class="row">
+                <div class="col-md-2">
+                    <p>@Html.DisplayFor(modelItem => model.HeroName)</p>
+                </div>
+                <div class="col-md-2">
+                    <p>@Html.DisplayFor(modelItem => model.Age)</p>
+                </div>
+                <div class="col-md-2">
+                    <p>@Html.DisplayFor(modelItem => model.City)</p>
+                </div>
+                <div class="col-md-2">
+                    <p>@Html.DisplayFor(modelItem => model.RateAverage)</p>
+                </div>
+                <div class="col-md-2">
+                    <p><img src="@Url.Content(model.Image)" alt="Image" style="max-width:100px; max-height:150px;" /></p>
+                </div>
+                <div class="col-md-2">
+                    @foreach (RatingViewModel rating in model.RatingHistory)
+                    {
+                        <p>@Html.DisplayFor(modelItem => rating.Rating)/5 - @Html.DisplayFor(modelItem => rating.RaterName)</p>
+                    }
+                </div>
+            </div>
+            <hr />
+        }
+    }
+</div>
